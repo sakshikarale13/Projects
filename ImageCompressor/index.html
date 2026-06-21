@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squeeze — Compress Images Without Losing What Matters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="eyebrow">CLIENT-SIDE IMAGE COMPRESSION</div>
+    <h1>Squeeze<span class="cursor">_</span></h1>
+    <p class="tagline">Drop a heavy image in. Watch the kilobytes fall. Nothing ever leaves your browser.</p>
+  </header>
+
+  <main class="container">
+
+    <section class="upload-section">
+      <div id="dropZone" class="drop-zone">
+        <div class="drop-inner">
+          <svg class="drop-icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <path d="M24 6V30M24 6L15 15M24 6L33 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 32V36C8 38.2091 9.79086 40 12 40H36C38.2091 40 40 38.2091 40 36V32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p id="dropText">Drag images here, or <span class="link-text">browse files</span></p>
+          <p class="drop-sub">JPG, PNG, WEBP — any size, any number</p>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+      </div>
+    </section>
+
+    <section id="controls" class="controls hidden">
+      <div class="control-row">
+        <label for="qualitySlider">
+          <span class="control-label">Quality</span>
+          <span class="control-value"><span id="qualityValue">70</span>%</span>
+        </label>
+        <input type="range" id="qualitySlider" min="10" max="100" value="70">
+      </div>
+
+      <div class="control-row">
+        <span class="control-label">Output format</span>
+        <div class="format-toggle" id="formatToggle">
+          <button class="format-btn active" data-format="image/jpeg">JPG</button>
+          <button class="format-btn" data-format="image/webp">WEBP</button>
+          <button class="format-btn" data-format="image/png">PNG</button>
+        </div>
+      </div>
+
+      <div class="control-row stats-row">
+        <div class="stat">
+          <span class="stat-num" id="totalSaved">0 KB</span>
+          <span class="stat-label">total saved</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" id="avgPercent">0%</span>
+          <span class="stat-label">avg reduction</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" id="fileCount">0</span>
+          <span class="stat-label">images</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="results-section hidden"></section>
+
+    <section id="downloadAllSection" class="download-all-section hidden">
+      <button id="downloadAllBtn" class="btn btn-primary">Download all compressed</button>
+      <button id="resetBtn" class="btn btn-ghost">Start over</button>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-credit">Built by <strong>Sakshi</strong> · <a href="mailto:your-email@example.com">sakshi.12520700322vit.edu</a></p>
+      <a href="https://digitalheroesco.com" class="btn-built-for" target="_blank" rel="noopener">Built for Digital Heroes →</a>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
