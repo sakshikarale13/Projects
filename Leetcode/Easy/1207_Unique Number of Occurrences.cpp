@@ -2,7 +2,6 @@ class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) 
     {
-        int count=0;
         map<int, int> freq;
         for(int i=0;i<arr.size();i++)
         {
